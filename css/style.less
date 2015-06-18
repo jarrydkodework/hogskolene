@@ -1,0 +1,360 @@
+/*
+* Less File for Folke Hogskolene Theme
+*/
+
+/* Colors */
+@orange: #F5A623;
+@blue: #248EF5;
+@black: #000000;
+@white: #FFFFFF;
+@gray: #B1B1B1;
+
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Lobster);
+@font-face {
+	font-family: "t-book";
+	src: url("../fonts/book.eot");
+	src: url("../fonts/book.eot#iefix") format("embedded-opentype"),
+	url("../fonts/book.woff") format("woff"),
+	url("../fonts/book.ttf") format("truetype"),
+	url("../fonts/book.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "t-semibold";
+	src: url("../fonts/semibold.eot");
+	src: url("../fonts/semibold.eot#iefix") format("embedded-opentype"),
+	url("../fonts/semibold.woff") format("woff"),
+	url("../fonts/semibold.ttf") format("truetype"),
+	url("../fonts/semibold.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Bootstrap Radio CSS */
+@import url(awesome-bootstrap-checkbox.css);
+
+/* Styles */
+body {
+	background: url('../images/bg-collage.png') no-repeat center center @orange;
+	background-size: cover;
+	background-attachment: fixed;
+	min-height: 100vh;
+	color: @black;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	.bg-overlay {
+		background: fadeout(@orange, 20%);
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		&.gradient {
+			background: -moz-linear-gradient(top,  fadeout(@orange, 20%) 0%, @orange 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,fadeout(@orange, 20%)), color-stop(100%,@orange));
+			background: -webkit-linear-gradient(top,  fadeout(@orange, 20%) 0%,@orange 100%);
+			background: -o-linear-gradient(top,  fadeout(@orange, 20%) 0%,@orange 100%);
+			background: -ms-linear-gradient(top,  fadeout(@orange, 20%) 0%,@orange 100%);
+			background: linear-gradient(to bottom,  fadeout(@orange, 20%) 0%,@orange 100%);
+		}
+	}
+}
+
+a {
+	color: @black;
+	text-decoration: underline;
+	&:hover {
+		color: gray;
+	}
+}
+
+.blue-btn {
+	border: 1px solid transparent;
+	border-radius: 3px;
+	font-family: 'Lato', sans-serif;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.1em;
+	color: @white;
+	background: @blue;
+	cursor: pointer;
+	padding: 0.5em 3em;
+	display: inline-block;
+	margin: 0.75em 0;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	&:hover {
+		background: @white;
+		color: @blue;
+		border-color: @blue;
+		text-decoration: none;
+	}
+}
+
+/**** Header Styles ****/
+.header {
+	padding: 1em 0;
+	.logo {
+		text-align: right;
+		.img-responsive {
+			display: inline-block;
+		}
+	}
+}
+
+/**** Homepage Styles ****/
+.body-wrapper {	
+	position: relative;
+	.center-container {
+		max-width: 600px;
+		background: url('../images/box-bg.png') no-repeat @white;
+		background-position: right -3px bottom -4px;
+		background-size: 30%;
+		margin: 0 auto 1em;
+		border-radius: 2px;
+		box-shadow: 1px 1px 5px 1px fadeout(@black, 60%); 
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		&.not-vert {
+			top: 0;
+			transform: none;
+			margin-top: 130px;
+		}
+		@media screen and (max-width:768px) {
+			top: 0;
+			transform: none;
+			margin-top: 3em;
+		}
+		.home {
+			padding: 1em;
+		}
+		.dude-box {
+			float: left;
+			width: 35%;
+			position: relative;
+			top: -50px;
+		}
+		.action {
+			margin: 2em 0;
+			float: left;
+			width: 40%;
+			text-align: center;
+			.action-text {
+				font-family: 'Lobster', cursive;
+				width: 100%;
+				position: relative;
+				left: 15px;
+				height: 100%;
+				margin: 1em 0;
+			}
+		}
+		.questions {
+			padding: 1em;
+			background: fadeout(@white, 10%);
+			.question-top {
+				max-width: 220px;
+				position: absolute;
+				.action {
+					margin: 0;
+					.action-text {
+						margin: 0;
+						left: 0;
+					}
+				}
+			}
+			.trophy {
+				position: absolute;
+				max-width: 150px;
+				left: 225px;
+				top: -120px;
+				@media screen and (max-width:768px) {
+					left: auto;
+					right: 1em;
+				}
+			}
+			.result-score {
+				color: @gray;
+				position: absolute;
+				right: 1em;
+				width: 35%;
+				.score {
+					font-weight: 700;
+					font-size: 4.5em;
+					float: left;
+					margin: 0 5px 0 0;
+				}
+				@media screen and (max-width:768px) {
+					position: relative;
+					right: auto;
+					left: 35%;
+					top: 80px;
+				}
+				@media screen and (max-width:480px) {
+					width: 50%;
+					left: 25%;
+				}
+			}
+			.question-holder {
+				text-align: center;
+				margin-top: 80px;
+				margin-bottom: 1.5em;
+				.question-number {
+					text-transform: uppercase;
+					color: @gray;
+				}
+				.question {
+					margin: 0;
+					font-family: "t-book";
+					font-size: 2.6em;
+				}
+				.result {
+					font-family: "t-semibold";
+					font-size: 3em;
+					margin: 0;
+					span {
+						color: @orange;
+					}
+				}
+				@media screen and (max-width:768px) {
+					margin-top: 100px;
+				}
+			}
+			.answers {
+				max-width: 80%;
+				margin: 1em auto;
+				ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					li {
+						display: inline-block;
+						padding: 0.5em 0;
+						width: 48%;
+						margin-right: 1%;
+						.checkbox {
+							margin: 0;
+							position: relative;
+							label {
+								padding-left: 15px;
+								&:before {
+									height: 20px;
+									width: 20px;
+									border: 1px solid @black;
+								}
+								&:after {
+									font-size: 13px;
+								}
+							}
+							input[type="radio"] {
+								&:checked {
+									& + label:before {
+										background: @black;
+									}
+									& + label:after {
+										color: @white;
+									}
+								}
+								&:focus {
+									outline: none !important;
+								}
+							}
+						}
+					}
+				}
+				.answer-actions {
+					margin: 3em 0 0;
+					text-align: center;
+					.blue-btn {
+						margin: 0 0.5em;
+					}
+					@media screen and (max-width:480px) {
+						.blue-btn {
+							margin: 1em 0.5em;
+							display: block;
+						}
+					}
+				}
+				@media screen and (max-width:768px) {
+					ul {
+						li {
+							width: 100%;
+							margin: 1em 0;
+						}
+					}
+				}
+			}
+			.result-info {
+				padding: 1em 2em;
+				.info {
+					h4 {
+						text-transform: uppercase;
+						margin: 0 0 0.5em;
+						font-size: 1.6em;
+						font-weight: 300;
+					}
+					p {
+						font-size: 0.88em;
+					}
+				}
+			}
+			.result-share {
+				text-align: center;
+				.share-btn {
+					display: inline-block;
+					background: @gray;
+					color: @white;
+					padding: 0.75em 2em;
+					margin: 1.5em 0.5em;
+					border-radius: 3px;
+					text-decoration: none;
+					-webkit-transition: all 0.3s;
+					-moz-transition: all 0.3s;
+					transition: all 0.3s;
+					&.btn-fb {
+						background: #507CC0;
+						&:hover {
+							background: darken(#507CC0, 20%);
+						}
+					}
+					&.btn-twitter {
+						background: #64CCF1;
+						&:hover {
+							background: darken(#64CCF1, 20%);
+						}
+					}
+				}
+				p {
+					max-width: 80%;
+					margin: 1em auto;
+					font-size: 1.2em;
+					a {
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+	.tags {
+		max-width: 600px;
+		margin: 1em auto 2em;
+		a {
+			display: inline-block;
+			padding: 0.5em 1em;
+			font-size: 1.2em;
+			background: @white;
+			margin: 0.5em 0.5em 0.5em 0;
+			border-radius: 3px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+	}
+}
