@@ -38,70 +38,49 @@ get_header(); ?>
 						</svg>
 					</div>
 				</div>
+                             <?php $questions=get_posts(array('post_type'=>questions,'posts_per_page'=>-1));
+                             $counter=0;
+                             foreach($questions as $question) {
+                                   $counter++;
+                             ?>
+                            <div id="setup_<?php echo $counter; ?>" <?php if($counter > 1){ ?> style='display:none;' <?php } ?> data-question='<?php echo $question->ID; ?>' class='questions_div'>
+                           
 				<div class="question-holder">
 					<div class="question-number">
-						Sp&oslash;rsm&aring;l 1/6
+						Sp&oslash;rsm&aring;l <?php echo $counter; ?>/<?php echo count($questions); ?>
 					</div>
 					<h2 class="question">
-						Jeg liker best å være
+					<?php echo $question->post_title; ?>
 					</h2>
 				</div>
+                                <?php $answers=get_post_meta($question->ID,'answers',true);
+                               
+                               ?>
 				<div class="answers">
-					<ul>
+					<ul class="clearfix">
+                                            <?php 
+                                            for($iter=0;$iter<sizeof($answers);$iter++){ 
+                                                $answeCounter++;
+                                ?>
 						<li>
 							<div class="checkbox checkbox-circle">
-								<input type="radio" name="radio2" id="radio1" value="option1" checked>
-								<label for="radio1">
-									Ute i naturen
+								<input type="radio" name="answer" id="radio_<?php echo $answeCounter; ?>" value="<?php echo $answers[$iter]; ?>">
+								<label for="radio_<?php echo $answeCounter; ?>">
+									<?php echo get_the_title($answers[$iter]); ?>
 								</label>
 							</div>
 						</li>
-						<li>
-							<div class="checkbox checkbox-circle">
-								<input type="radio" name="radio2" id="radio2" value="option2" checked>
-								<label for="radio2">
-									Ute i naturen
-								</label>
-							</div>
-						</li>
-						<li>
-							<div class="checkbox checkbox-circle">
-								<input type="radio" name="radio2" id="radio3" value="option3" checked>
-								<label for="radio3">
-									Ute i naturen
-								</label>
-							</div>
-						</li>
-						<li>
-							<div class="checkbox checkbox-circle">
-								<input type="radio" name="radio2" id="radio4" value="option4" checked>
-								<label for="radio4">
-									Ute i naturen
-								</label>
-							</div>
-						</li>
-						<li>
-							<div class="checkbox checkbox-circle">
-								<input type="radio" name="radio2" id="radio5" value="option5" checked>
-								<label for="radio5">
-									Ute i naturen
-								</label>
-							</div>
-						</li>
-						<li>
-							<div class="checkbox checkbox-circle">
-								<input type="radio" name="radio2" id="radio6" value="option6" checked>
-								<label for="radio6">
-									Ute i naturen
-								</label>
-							</div>
-						</li>
+                                             <?php } ?>
+						
 					</ul>
 					<div class="answer-actions">
-						<a href="#" class="blue-btn">Back</a>
-						<a href="#" class="blue-btn">Next</a>
+                                                <?php if($counter > 1) { ?><a href="#" class="blue-btn back-button" data-value='<?php echo ($counter-1); ?>'>Back</a><?php } ?>
+						<a href="#" class="blue-btn next-button"  data-value='<?php echo $counter; ?>'>Next</a>
 					</div>
 				</div>
+                              
+                        </div>
+                               <?php } ?>
 			</div>
 		</div>
 	</div>

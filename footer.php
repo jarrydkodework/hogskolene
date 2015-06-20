@@ -9,6 +9,7 @@
 	<!-- jQuery -->
 	<script type="text/javascript" charset="utf8" src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="<?php echo get_template_directory_uri(); ?>/js/grids.min.js"></script>
 	<script>
 		jQuery(document).ready(function($) {
 			// Set Container Height
@@ -22,6 +23,8 @@
 				var l = $('.header').height();
 				$('.body-wrapper').height(w - l);
 			});
+			
+			$('.answers ul li').responsiveEqualHeightGrid();
 		});
 	</script>
 	<?php wp_footer();?>
